@@ -1,0 +1,95 @@
+const { EmbedBuilder, ApplicationCommandType } = require("discord.js"); // packages
+
+const { check_if_dj } = require("../../Util/functions");
+const FiltersSettings = require("../../Config/filters.json");
+
+module.exports = {
+  name: 'waifu-setfilter', // name of the command
+  description: 'Sets (Overwrides) all Filters', // description of the command
+  developer: false, // false if the command is for public
+  type: ApplicationCommandType.ChatInput, // chatinput
+  cooldown: 3000, // cooldown of the commands
+  default_member_permissions: 'SendMessages', // discord perms
+  inVoiceChannel: true,
+  options: [
+    {
+      name: 'filters',
+      description: "Add all filters with a space between, to set!",
+      type: 3,
+      required: true
+    }
+  ], // options string
+  execute: async (client, interaction) => {
+    try {
+      const { member, guildId, options } = interaction;
+      try {
+        const queue = client.distube.getQueue(guildId);
+        if (!queue || !queue.songs || queue.songs.length == 0) return interaction.reply({
+          embeds: [
+            new EmbedBuilder().setColor(client.important.ERR_COLOR).setTitle(`${client.emoji.cross} | No songs are playing at the moment!`)
+          ],
+          ephemeral: true
+        })
+        if (check_if_dj(client, member, queue.songs[0])) {
+          return interaction.reply({
+            embeds: [new EmbedBuilder()
+              .setColor(client.important.ERR_COLOR)
+              .setFooter({ text: `${client.user.username}`, iconURL: client.user.displayAvatarURL() })
+              .setDescription(`${client.emoji.warning} | **You are not a DJ and not the Song Requester!**\n**DJ-Roles:**\n> ${check_if_dj(client, member, queue.songs[0])}`)
+            ],
+            ephemeral: true
+          });
+        }
+        let filters = options.getString("filters").toLowerCase().split(" ");
+        if (!filters) filters = [options.getString("filters").toLowerCase()]
+        if (filters.some(a => !FiltersSettings[a])) {
+          return interaction.reply({
+            embeds: [
+              new EmbedBuilder()
+                .setColor(client.important.ERR_COLOR)
+                .setFooter({ text: `${client.user.username}`, iconURL: client.user.displayAvatarURL() })
+                .setTitle(`${client.emoji.cross} | You added at least one Filter, which is invalid!`)
+                .setDescription("To define Multiple Filters add a **SPACE** (` `) in between!")
+                .addFields(
+                  { name: "All Valid Filters:", value: Object.keys(FiltersSettings).map(f => `\`${f}\``).join(", ") + "\n\n**Note:**\n> *All filters, starting with custom are having there own Command, please use them to define what custom amount u want!*" }
+                )
+            ], ephemeral: true
+          })
+        }
+        let amount = filters.length;
+        let toAdded = filters;
+        //add old filters so that they get removed 	
+        queue.filters.forEach((f) => {
+          if (!filters.includes(f)) {
+            toAdded.push(f)
+          }
+        })
+        if (!toAdded || toAdded.length == 0) {
+          return interaction.reply({
+            embeds: [
+              new EmbedBuilder()
+                .setColor(client.important.ERR_COLOR)
+                .setFooter({ text: `${client.user.username}`, iconURL: client.user.displayAvatarURL() })
+                .setDescription(`${client.emoji.cross} | You did not add a Filter, which is (not) in the Filters yet.`)
+                .addFields(
+                  { name: "**All __current__ Filters:**", value: queue.filters.map(f => `\`${f}\``).join(", ") }
+                )
+            ], ephemeral: true
+          })
+        }
+        await queue.filters.add(filters);
+        interaction.reply({
+          embeds: [new EmbedBuilder()
+            .setColor(client.important.MAIN_COLOR)
+            .setTimestamp()
+            .setDescription(`♨️ | Set ${amount} Filters!`)
+            .setFooter({ text: `💢 | Action by: ${member.user.tag}`, iconURL: member.user.displayAvatarURL({ dynamic: true }) })]
+        })
+      } catch (e) {
+        console.log(e)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
