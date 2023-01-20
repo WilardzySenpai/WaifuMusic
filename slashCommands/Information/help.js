@@ -317,6 +317,15 @@ module.exports = {
               }
             }
           })
+        } else if (slcmd === 'anime') {
+          const aniemebd = new EmbedBuilder()
+            .setColor(client.important.MAIN_COLOR)
+            .setTitle(client.emoji.blank + " Anime Panel")
+            .setDescription(`${client.commands.filter((cmd) => cmd.category === "Anime").map((cmd) =>
+              `\`${cmd.name}\``).join(", ")}`)
+          await interaction.reply({ embeds: [aniemebd] }).then(() => {
+            interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
+          })
         } else {
           const _slcmd = client.slashCommands.get(`waifu-${slcmd.toLowerCase()}`)
           if (!_slcmd) return interaction.reply({ content: `${client.emoji.warning} | There is no such __**waifu-${slcmd}**__ exist.\n> Please do not include **waifu-** at the begining if you did.`, ephemeral: true })
@@ -620,6 +629,13 @@ module.exports = {
               }
             }
           })
+        } else if (slcmd === 'anime') {
+          const aniemebd = new EmbedBuilder()
+            .setColor(client.important.MAIN_COLOR)
+            .setTitle(client.emoji.blank + " Anime Panel")
+            .setDescription(`${client.commands.filter((cmd) => cmd.category === "Anime").map((cmd) =>
+              `\`${cmd.name}\``).join(", ")}`)
+          await interaction.reply({ embeds: [aniemebd] });
         } else {
           const _slcmd = client.slashCommands.get(`waifu-${slcmd.toLowerCase()}`)
           if (!_slcmd) return interaction.reply({ content: `${client.emoji.warning} | There is no such __**waifu-${slcmd}**__ exist.\n> Please do not include **waifu-** at the begining if you did.`, ephemeral: true })
@@ -640,14 +656,14 @@ module.exports = {
     } catch (e) {
       console.log(e)
       await interaction.reply({
-          embeds:
-              [
-                  new EmbedBuilder()
-                      .setTitle(client.emoji.warning + " Error!")
-                      .setDescription("*n error occured!" + `${e}`)
-                      .setColor(client.important.ERR_COLOR)
-              ],
-              ephemeral: true
+        embeds:
+          [
+            new EmbedBuilder()
+              .setTitle(client.emoji.warning + " Error!")
+              .setDescription("*n error occured!" + `${e}`)
+              .setColor(client.important.ERR_COLOR)
+          ],
+        ephemeral: true
       })
     }
   }
