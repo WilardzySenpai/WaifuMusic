@@ -2,6 +2,11 @@
 
 <h1 align="center">🎶 WaifuMusic 🎵</h1>
 
+# WaifuMusic
+- Invite our bot directly [here.](https://discord.com/api/oauth2/authorize?client_id=1013477956905091144&permissions=3524689&scope=bot)
+- Visit our bot website: [waifumusic](https://waifumusic.ml)
+- Vote for WaifuMusic: https://top.gg/bot/1013477956905091144/vote
+
 ## 💨 Update 1.3.0
 
 The bot now uses the latest version of discord.js and prefix commands are back again, added more function to it, a music channel where you can type your song and waifu will join the vc where you are in and play the music you entered. More updates information on our support server.
