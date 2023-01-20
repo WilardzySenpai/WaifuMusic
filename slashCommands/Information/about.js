@@ -42,15 +42,16 @@ module.exports = {
         const { options, members, guild } = interaction;
         const abouts_m = options.getString('abouts'); 
         try {
-            if (abouts_m === 'waifu') {
+            if (abouts_m == 'waifu') {
                 const bot_about = new EmbedBuilder()
-                    .setTitle(client.emoji.blank + `${client.user.usernamne} About me!`)
+                    .setTitle(client.emoji.blank + `${client.user.username} About me!`)
                     .setDescription("WaifuMusic is a **Discord music bot** designed to deliver the **highest quality audio** experience to users on the Discord web and app platforms. With WaifuMusic, users can easily play music in voice channels and enjoy crystal clear sound quality.")
                     .addFields(
                         {
-                            name: 'Techonology', vallue: "WaifuMusic is a feature-rich Discord music bot developed using **JavaScript** and the **discord.js** library. The bot's functionality is further enhanced through the use of the **Distube** package, which allows it to seamlessly provide music within voice channels on the Discord platform. Additionally, the bot utilizes the Discord API to provide a wide range of features and capabilities."
+                            name: 'Techonology', value: "WaifuMusic is a feature-rich Discord music bot developed using **JavaScript** and the **discord.js** library. The bot's functionality is further enhanced through the use of the **Distube** package, which allows it to seamlessly provide music within voice channels on the Discord platform. Additionally, the bot utilizes the Discord API to provide a wide range of features and capabilities."
                         }
                     )
+                    .setColor(client.important.MAIN_COLOR)
     
                 interaction.reply({ embeds: [bot_about] })
             } else if (abouts_m === 'hachiki') {

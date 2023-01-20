@@ -24,6 +24,12 @@ module.exports = {
             name: 'anime',
             description: 'Provide a anime',
             type: 3,
+            required: true
+        },
+        {
+            name: 'page',
+            description: 'What page',
+            type: 10,
             required: false
         }
     ], // options string
@@ -33,18 +39,20 @@ module.exports = {
         //     return interaction.reply({ content: `${client.emoji.warning} | I need \`ViewChannel\`, \`SendMessages\`, \`Speak\`, \`Connect\`, \`UseExternalEmoji\`, \`AddReactions\`, \`EmbedLinks\`, \`AttachFiles\` & \`ReadMessageHistory\` to permission to proceed.`, ephemeral: true })
         // }
         const { options } = interaction;
-        const query = options.getString('char');
+        const query = options.getString('anime');
+        const pages = options.getNumber('page');
         try {
             if (!query) return interaction.reply({ content: client.emoji.cross + " | Please provide a anime" })
-            async function Wallpaper1() {
-                const wallpaper = await wall.getAnimeWall1({
-                    search: query,
-                    page: 1,
+            async function Wallpaper4() {
+                const wallpaper = await wall.getAnimeWall4({
+                    title: query,
+                    type: "sfw",
+                    page: pages || 1,
                 });
                 return wallpaper;
             }
             try {
-                var wallpapers = await Wallpaper1();
+                var wallpapers = await Wallpaper4();
             } catch (e) {
                 console.log(e)
                 return interaction.reply({ content: client.emoji.warning + " | No result: " + query.toString() })
