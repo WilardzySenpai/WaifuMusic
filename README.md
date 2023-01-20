@@ -70,7 +70,7 @@ module.exports = {
 }
 ```
 ## 💕 Running
-Once the necessary variables have been entered in the config.js file, use the following command in your console to run your bot.
+Once the necessary variables have been entered in the config.js file, invite your bot to the server you fill in the `config.js` then, use the following command in your console to run your bot.
 ```
 npm run start
 ```
