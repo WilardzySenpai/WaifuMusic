@@ -16,7 +16,7 @@ const { loadUpdate } = require("../Handlers/loadUpdate.js");
 const { readdirSync } = require('fs');
 const Enmap = require('enmap');
 
-const { green, red } = require('chalk');
+const chalk = require('chalk');
 const { DisTube } = require('distube');
 const { SpotifyPlugin } = require('@distube/spotify');
 const { SoundCloudPlugin } = require('@distube/soundcloud');
@@ -106,10 +106,10 @@ function waifuSpotiisOff() {
 
 function waifuCheckSpoti(client) {
   if (client.important.WAIFU_TRACKS) {
-    console.log(green("[WAIFU_TRACKS] You enabled the Spotify more tracks!"))
+    console.log(chalk.green("[") + chalk.yellow.bold("WAIFU_TRACKS") + chalk.green("]") + chalk.yellow(" You enabled the Spotify more tracks!"))
     return waifuSpotiisOn(client)
   } else {
-    console.log(red("[WAIFU_TRACKS] You disabled the Spotify more tracks!"))
+    console.log(chalk.green("[") + chalk.yellow.bold("WAIFU_TRACKS") + chalk.green("]") + chalk.red(" You disabled the Spotify more tracks!"))
     return waifuSpotiisOff()
   }
 }

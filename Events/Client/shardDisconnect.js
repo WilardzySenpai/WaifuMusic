@@ -1,5 +1,8 @@
-const { yellow, white } = require("chalk");
+const { gray } = require("chalk");
 
-module.exports = async (client, error, id) => {
-    console.log(white('[') + yellow('WARN') + white('] ') + yellow('Shard ') + white(id) + yellow(' Shard Disconnected!'));
+module.exports = {
+    name: 'shardDisconnect',
+    execute: (client, event, id) => {
+        console.log(gray(' [') + gray(`${String(new Date).split(" ", 5).join(" ")}`) + gray('] ') + gray('Shard ') + gray(`#${id}`) + gray(' Shard Disconnected!'));
+    }
 }

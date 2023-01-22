@@ -2,7 +2,7 @@ function loadDatabase(client) {
     const { green, white } = require('chalk');
     const { Database } = require("st.db");
 
-    console.log(white('[') + green('INFO') + white('] ') + green(`Database `) + white('Events') + green(' Loaded!'));
+    console.log(white('[') + green('WAIFU_INFO') + white('] ') + green(`Database `) + white('Events') + green(' Loaded!'));
 
     client.createAniExSetup = async function (interaction) {
         const db = new Database("./databases/models/anime.json", { databaseInObject: true });

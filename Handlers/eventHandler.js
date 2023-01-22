@@ -30,7 +30,7 @@ function loadEvents(client) {
       continue;
     }
   }
-  console.log(white('[') + green('INFO') + white('] ') + green('Client ') + white('Events') + green(' Loaded!'));
+  console.log(white('[') + green('WAIFU_INFO') + white('] ') + green('Client ') + white('Events') + green(' Loaded!'));
 }
 
 module.exports = { loadEvents }

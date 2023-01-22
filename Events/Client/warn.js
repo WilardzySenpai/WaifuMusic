@@ -1,5 +1,8 @@
-const { white, yellow } = require('chalk');
+const { white, red } = require('chalk');
 
-module.exports = async (client) => {
-    console.log(white('[') + yellow('WARN') + white('] ') + yellow('Warned ') + white(`${client.user.tag} (${client.user.id})`) + yellow(' '));
-};
+module.exports = {
+    name: 'warn',
+    execute: (client, info) => {
+        console.log(white(' [') + red('WARN') + white('] ') + red('Warned ') + white(String(info)));
+    }
+}

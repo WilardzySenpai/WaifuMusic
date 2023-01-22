@@ -7,7 +7,7 @@ function loadError(client) {
         id: weblog.error.id,
         token: weblog.error.token,
     });
-    console.log(chalk.white('[') + chalk.green('INFO') + chalk.white('] ') + chalk.green('Error Handler') + chalk.white(' Loaded!'));
+    console.log(chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white('] ') + chalk.green('Error Handler') + chalk.white(' Loaded!'));
 
     process.on("beforeExit", (code) => {
         console.log(chalk.yellow.dim("[AntiCrash] | [BeforeExit_Logs] | [Start] : ==============="));

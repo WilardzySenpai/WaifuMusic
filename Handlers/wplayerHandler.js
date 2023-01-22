@@ -10,7 +10,7 @@ function loadwplayer(client) {
         client.distube.on(eventName, event.bind(null, client));
     })
 
-    console.log(white('[') + green('INFO') + white('] ') + green('Waifu ') + white('Player') + green(' Loaded!'));
+    console.log(white('[') + green('WAIFU_INFO') + white('] ') + green('Waifu ') + white('Player') + green(' Loaded!'));
 }
 
 module.exports = { loadwplayer }

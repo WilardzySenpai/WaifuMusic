@@ -6,7 +6,7 @@ function loadPlayer(client) {
     require("./Player/loadSetup.js")(client);
     // require("./Player/loadUpdate.js")(client);
 
-    console.log(white('[') + green('INFO') + white('] ') + green('Player ') + white('Events') + green(' Loaded!'));
+    console.log(white('[') + green('WAIFU_INFO') + white('] ') + green('Player ') + white('Events') + green(' Loaded!'));
 }
 
 module.exports = { loadPlayer }

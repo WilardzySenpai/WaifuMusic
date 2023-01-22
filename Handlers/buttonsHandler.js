@@ -8,7 +8,7 @@ function loadButtons(client) {
         const button = require(`../buttons/${file}`)
         client.buttons.set(button.id, button)
     })
-    console.log(white('[') + green('INFO') + white('] ') + green('Buttons') + white(' Loaded!'));
+    console.log(white('[') + green('WAIFU_INFO') + white('] ') + green('Buttons') + white(' Loaded!'));
 }
 
 module.exports = { loadButtons }

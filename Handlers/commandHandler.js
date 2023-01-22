@@ -50,7 +50,7 @@ function loadslashCommands(client) {
   const devGuildID = client.guilds.cache.get(client.important.DEV_GUILD)
   devGuildID.commands.set(developerArray)
 
-  console.log(white('[') + green('INFO') + white('] ') + green(`${client.slashCommands.size} `) + white('Interactions') + green(' Loaded!'));
+  console.log(white('[') + green('WAIFU_INFO') + white('] ') + green(`${client.slashCommands.size} `) + white('Interactions') + green(' Loaded!'));
 }
 
 module.exports = { loadslashCommands }

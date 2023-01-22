@@ -24,7 +24,7 @@ function loadPrefixCommand(client) {
       continue;
     }
   }
-  console.log(white('[') + green('INFO') + white('] ') + green(`${client.commands.size} `) + white('Prefix') + green(' Loaded!'));
+  console.log(white('[') + green('WAIFU_INFO') + white('] ') + green(`${client.commands.size} `) + white('Prefix') + green(' Loaded!'));
 }
 
 module.exports = { loadPrefixCommand }

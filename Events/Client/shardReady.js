@@ -1,5 +1,8 @@
-const { white, green } = require("chalk");
+const { gray } = require("chalk");
 
-module.exports = async (client, id) => {
-    console.log(white('[') + green('INFO') + white('] ') + green('Shard ') + white(id) + green(' Shard Ready!'));
+module.exports = {
+    name: 'shardReady',
+    execute: (client, id, unavailableGuilds) => {
+        console.log(gray(' [') + gray(`${String(new Date).split(" ", 5).join(" ")}`) + gray('] ') + gray('Shard ') + gray(`#${id}`) + gray(` Ready`));
+    }
 }

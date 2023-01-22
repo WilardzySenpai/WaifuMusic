@@ -6,7 +6,7 @@ function loadUpdate(client) {
 
     const db = new Database("./databases/models/setup.json", { databaseInObject: true });
 
-    console.log(white('[') + green('INFO') + white('] ') + green('Load ') + white('Update') + green(' Loaded!'));
+    console.log(white('[') + green('WAIFU_INFO') + white('] ') + green('Load ') + white('Update') + green(' Loaded!'));
 
     client.UpdateQueueMsg = async function (queue) {
         const CheckDB = await db.has(queue.textChannel.guild.id);
