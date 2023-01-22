@@ -11,6 +11,7 @@ module.exports = {
    */
   execute: async (message, client) => {
     client.settings.ensure(message.guildId, {
+      prefix: client.important.WAIFU_PREFIX,
       defaultvolume: 50,
       defaultautoplay: false,
       defaultfilters: [],

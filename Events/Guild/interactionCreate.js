@@ -14,6 +14,7 @@ module.exports = {
     await client.createAniExSetup(interaction);
     
     client.settings.ensure(interaction.guildId, {
+      prefix: client.important.WAIFU_PREFIX,
       defaultvolume: 50,
       defaultautoplay: false,
       defaultfilters: [],
