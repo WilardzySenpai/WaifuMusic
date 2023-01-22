@@ -321,7 +321,7 @@ module.exports = {
           const aniemebd = new EmbedBuilder()
             .setColor(client.important.MAIN_COLOR)
             .setTitle(client.emoji.blank + " Anime Panel")
-            .setDescription(`${client.commands.filter((cmd) => cmd.category === "Anime").map((cmd) =>
+            .setDescription(`${client.slashCommands.filter((cmd) => cmd.category === "Anime").map((cmd) =>
               `\`${cmd.name}\``).join(", ")}`)
           await interaction.reply({ embeds: [aniemebd] }).then(() => {
             interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
@@ -633,7 +633,7 @@ module.exports = {
           const aniemebd = new EmbedBuilder()
             .setColor(client.important.MAIN_COLOR)
             .setTitle(client.emoji.blank + " Anime Panel")
-            .setDescription(`${client.commands.filter((cmd) => cmd.category === "Anime").map((cmd) =>
+            .setDescription(`${client.slashCommands.filter((cmd) => cmd.category === "Anime").map((cmd) =>
               `\`${cmd.name}\``).join(", ")}`)
           await interaction.reply({ embeds: [aniemebd] });
         } else {
