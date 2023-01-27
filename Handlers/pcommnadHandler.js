@@ -2,7 +2,7 @@ function loadPrefixCommand(client) {
   const fs = require('fs');
   const ascii = require("ascii-table");
   const table = new ascii().setHeading("Commands", "Status");
-  const { green, white } = require('chalk');
+  const chalk = require('chalk');
 
   const commandFolders = fs.readdirSync("./Commands");
   for (const folder of commandFolders) {
@@ -24,7 +24,7 @@ function loadPrefixCommand(client) {
       continue;
     }
   }
-  console.log(white('[') + green('WAIFU_INFO') + white('] ') + green(`${client.commands.size} `) + white('Prefix') + green(' Loaded!'));
+  console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white('] ') + chalk.green(`${client.commands.size} `) + chalk.white('Prefix') + chalk.green(' Loaded!'));
 }
 
 module.exports = { loadPrefixCommand }

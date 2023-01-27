@@ -3,7 +3,7 @@ function loadslashCommands(client) {
   const { PermissionsBitField } = require('discord.js');
   const fs = require("fs");
   const table = new ascii().setHeading("slashCommands", "Status");
-  const { green, white } = require('chalk');
+  const chalk = require('chalk');
 
   let slashCommandsArray = [];
   let developerArray = [];
@@ -50,7 +50,7 @@ function loadslashCommands(client) {
   const devGuildID = client.guilds.cache.get(client.important.DEV_GUILD)
   devGuildID.commands.set(developerArray)
 
-  console.log(white('[') + green('WAIFU_INFO') + white('] ') + green(`${client.slashCommands.size} `) + white('Interactions') + green(' Loaded!'));
+  console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white('] ') + chalk.green(`${client.slashCommands.size} `) + chalk.white('Interactions') + chalk.green(' Loaded!'));
 }
 
 module.exports = { loadslashCommands }

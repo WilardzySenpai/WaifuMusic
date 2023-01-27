@@ -31,18 +31,20 @@ module.exports = {
         wbc.send(`[slashCommand] :: **Set prefix used by ${interaction.user.tag} from ${interaction.guild.name}**`);
         const { member, options } = interaction;
         const { guild } = member;
-        const c_prefix = options.getString("prefix");
+        let prefixN = options.getString("prefix");
+        client.settings.ensure(guild.id, {
+            prefix: client.important.WAIFU_PREFIX
+        });
         try {
-            let newPrefix = c_prefix;
-
-            client.settings.set(guild.id, newPrefix, "prefix");
-            interaction.reply({ embeds:
-                [
-                    new EmbedBuilder()
-                    .setColor(client.important.MAIN_COLOR)
-                    .setTitle(client.emoji.blank + " Custom Prefix!")
-                    .setDescription(client.emoji.check + " A new prefix has been set!\n> " + newPrefix)
-                ]
+            client.settings.set(guild.id, prefixN, "prefix");
+            interaction.reply({
+                embeds:
+                    [
+                        new EmbedBuilder()
+                            .setColor(client.important.MAIN_COLOR)
+                            .setTitle(client.emoji.blank + " Custom Prefix!")
+                            .setDescription(client.emoji.check + " A new prefix has been set!\n> " + prefixN)
+                    ]
             })
         } catch (e) {
             console.log(e)
