@@ -1,5 +1,5 @@
 const { Client, ActivityType, WebhookClient } = require("discord.js");
-const { green, white } = require('chalk');
+const chalk = require('chalk');
 const mongoose = require('mongoose');
 
 module.exports = {
@@ -10,8 +10,8 @@ module.exports = {
    * @param (Client) client
    */
   execute(client) {
-    console.log(white('[') + green('WAIFU_INFO') + white(']') + green(` ${client.user.tag} (${client.user.id})`) + white(` is Ready!`));
-    console.log(white('[') + green('WAIFU_INFO') + white(']') + green(` ${client.guilds.cache.size} | ${client.users.cache.size} | ${client.channels.cache.size}`) + white(` Goods`));
+    console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white(']') + chalk.green(` ${client.user.tag} (${client.user.id})`) + chalk.white(` is Ready!`));
+    console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white(']') + chalk.green(` ${client.guilds.cache.size} | ${client.users.cache.size} | ${client.channels.cache.size}`) + chalk.white(` Goods`));
 
     let guilds = client.guilds.cache.size;
     let users = client.users.cache.size;
@@ -32,6 +32,6 @@ module.exports = {
 
     mongoose.set('strictQuery', false);
     mongoose.connect(client.important.MONGO_DB, {
-    }).then(() => console.log(white('[') + green('MONGO_DB') + white(']') + green(` is now connected!`)))
+    }).then(() => console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('MONGO_DB') + chalk.white(']') + chalk.green(` is now connected!`)))
   }
 }

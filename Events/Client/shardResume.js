@@ -1,8 +1,8 @@
-const { gray } = require("chalk");
+const chalk = require('chalk');
 
 module.exports = {
     name: 'shardResume',
     execute: (client, id, replayedEvents) => {
-        console.log(gray(' [') + gray(`${String(new Date).split(" ", 5).join(" ")}`) + gray('] ') + gray('Shard ') + gray(`#${id}`) + gray(' Shard Resumed!'));
+        console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.yellow('[WAIFU_INFO] ') + chalk.yellow('Shard ') + chalk.yellow(`#${id}`) + chalk.yellow(' Shard Resumed!'));
     }
 }

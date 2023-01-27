@@ -1,8 +1,8 @@
-const { white, yellow } = require('chalk');
+const chalk = require('chalk');
 
 module.exports = {
     name: 'shardReconnecting',
     execute: (client, id) => {
-        console.log(white(' [') + yellow(`${String(new Date).split(" ", 5).join(" ")}`) + white('] ') + yellow('Shard ') + white(`#${id}`) + yellow(' Shard Reconnected!'));
+        console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.blue('[WAIFU_INFO] ') + chalk.blue('Shard ') + chalk.blue(`#${id}`) + chalk.blue(' Shard Reconnected!'));
     }
 }

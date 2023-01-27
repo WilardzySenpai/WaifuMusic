@@ -1,8 +1,8 @@
-const { gray } = require("chalk");
+const chalk = require('chalk');
 
 module.exports = {
     name: 'shardDisconnect',
     execute: (client, event, id) => {
-        console.log(gray(' [') + gray(`${String(new Date).split(" ", 5).join(" ")}`) + gray('] ') + gray('Shard ') + gray(`#${id}`) + gray(' Shard Disconnected!'));
+        console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.red('[WAIFU_INFO] ') + chalk.red('Shard ') + chalk.red(`#${id}`) + chalk.red(' Shard Disconnected!'));
     }
 }
