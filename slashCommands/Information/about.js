@@ -40,7 +40,7 @@ module.exports = {
     execute: async (client, interaction) => {
         wbc.send(`[slashCommand] :: **About me used by ${interaction.user.tag} from ${interaction.guild.name}**`);
         const { options, members, guild } = interaction;
-        const abouts_m = options.getString('abouts'); 
+        const abouts_m = options.getString('abouts');
         try {
             if (abouts_m == 'waifu') {
                 const bot_about = new EmbedBuilder()
@@ -52,10 +52,15 @@ module.exports = {
                         }
                     )
                     .setColor(client.important.MAIN_COLOR)
-    
+
                 interaction.reply({ embeds: [bot_about] })
             } else if (abouts_m === 'hachiki') {
-                // bruh
+                const hach_about = new EmbedBuilder()
+                    .setColor(client.important.MAIN_COLOR)
+                    .setTitle(`<:developer:1069433567572135996> Hachiki`)
+                    .setDescription(`Hello there! My name is Hachiki and I am the lead developer of ${client.user.username}. As a student currently studying computer science and software engineering, I am constantly striving to improve and expand upon my knowledge and skills in order to provide the best possible experience for our users. I am passionate about creating innovative and user-friendly software and I am dedicated to delivering high-quality results for our clients. I am always open to feedback and suggestions, so please do not hesitate to reach out to me with any thoughts or ideas you may have. Thank you for choosing ${client.user.username} and I look forward to working with you!`)
+
+                interaction.reply({ embeds: [hach_about] })
             }
         } catch (e) {
             console.log(e)

@@ -1,4 +1,4 @@
-const { Client, ActivityType, WebhookClient } = require("discord.js");
+const { Client, ActivityType, WebhookClient, EmbedBuilder } = require("discord.js");
 const chalk = require('chalk');
 const mongoose = require('mongoose');
 
@@ -9,9 +9,15 @@ module.exports = {
    *
    * @param (Client) client
    */
-  execute(client) {
+  execute (client) {
     console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white(']') + chalk.green(` ${client.user.tag} (${client.user.id})`) + chalk.white(` is Ready!`));
     console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white(']') + chalk.green(` ${client.guilds.cache.size} | ${client.users.cache.size} | ${client.channels.cache.size}`) + chalk.white(` Goods`));
+
+    const embed = new EmbedBuilder()
+      .setDescription("**Account has been**: `Online and Ready!`")
+      .setColor(client.important.MAIN_COLOR);
+
+    client.channels.cache.get(client.important.CHANNEL).send({ embeds: [embed] })
 
     let guilds = client.guilds.cache.size;
     let users = client.users.cache.size;

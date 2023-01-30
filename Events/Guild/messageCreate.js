@@ -10,7 +10,7 @@ module.exports = {
    * @param (Client) client
    */
   execute: async (message, client) => {
-    client.settings.ensure(message.guildId, {
+    client.settings.ensure(message.guild.id, {
       prefix: client.important.WAIFU_PREFIX,
       defaultvolume: 50,
       defaultautoplay: false,
@@ -40,8 +40,7 @@ module.exports = {
       return;
     }
     let command = client.commands.get(cmd)
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-    if (!command) return;
+    if (!command) command = client.commands.get(client.aliases.get(cmd.toLowerCase()));
     if (command.inVoiceChannel && !message.member.voice.channel) {
       return await message.reply(`${client.emoji.cross} | You must be in a voice channel!`)
     }

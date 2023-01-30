@@ -1,18 +1,12 @@
 require('dotenv').config();
 
 module.exports = {
-    // most importants
-    WAIFU_TOKEN: process.env.WAIFU_TOKEN,
-    OWNER_ID: "939867069070065714",
-    OWNER_TAG: "Hachiki#3819",
-    OWNER_LINK: "https://discord.com/users/939867069070065714",
-    DEV_GUILD:"1058390757297377331",
-
-    // prefix
-    WAIFU_PREFIX: "w!",
-
-    // database mongodb
-    MONGO_DB: process.env.MONGO_DB,
+    WAIFU_TOKEN: process.env.WAIFU_TOKEN, // bot token
+    OWNER_ID: "939867069070065714", // your id
+    OWNER_TAG: "Hachiki#3819", // your user tag
+    OWNER_LINK: "https://discord.com/users/939867069070065714", // https://discord.com/users/paste-ur-id-here
+    DEV_GUILD:"1058390757297377331", // dev guild
+    MONGO_DB: process.env.MONGO_DB, // database mongodb
 
     // spotify for distube
     // If spotify_tracks is true then you can play song from spotify more than 100+ the default is *false*
@@ -20,13 +14,12 @@ module.exports = {
     WAIFU_TRACKS: parseBoolean(process.env.WAIFU_TRACKS || false),
     SPOTIFY_SECRET: process.env.SPOTIFY_SECRET,
     SPOTIFY_CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
-
-    // youtube cookie to make less lag
-    YOUTUBE_COOKIE: process.env.YOUTUBE_COOKIE,
-
-    // embed colors
+    YOUTUBE_COOKIE: process.env.YOUTUBE_COOKIE, // youtube cookie to make less lag
+    
     MAIN_COLOR: "#2F3136",
-    ERR_COLOR: "#ED2828"
+    ERR_COLOR: "#ED2828",
+    WAIFU_PREFIX: "w!",
+    CHANNEL: "1027435338706210847"
 }
 
 function parseBoolean(ask) {
