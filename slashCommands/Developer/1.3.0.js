@@ -4,7 +4,7 @@ module.exports = {
     name: 'waifu-update', // name of the command
     description: 'brah', // description of the command
     usage: '/waifu-', // usage of the cmd
-    category: 'Developer', // cmd category
+    category: 'dev', // cmd category
     developer: true, // false if the command is for public
     type: ApplicationCommandType.ChatInput, // chatinput
     cooldown: 3000, // cooldown of the commands

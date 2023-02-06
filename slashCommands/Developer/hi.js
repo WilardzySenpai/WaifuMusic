@@ -6,7 +6,7 @@ module.exports = {
   name: 'hi', // name of the command
   description: 'test', // description of the command
   usage: '', // usage of the cmd
-  category: '', // cmd category
+  category: 'dev', // cmd category
   developer: true, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands

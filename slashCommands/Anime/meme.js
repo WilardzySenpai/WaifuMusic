@@ -12,8 +12,9 @@ const wbc = new WebhookClient({
 });
 
 module.exports = {
-  name: 'waifu-meme', // name of the command
+  name: 'waifu-animeme', // name of the command
   description: 'Get random anime meme', // description of the command
+  category: 'Anime', // cmd category
   developer: false, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands

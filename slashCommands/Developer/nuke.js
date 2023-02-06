@@ -3,6 +3,7 @@ const { ApplicationCommandType } = require("discord.js"); // packages
 module.exports = {
   name: 'nuke', // name of the command
   description: 'Nuke the channel', // description of the command
+  category: 'dev', // cmd category
   developer: true, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands

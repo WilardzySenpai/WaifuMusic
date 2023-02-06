@@ -6,6 +6,7 @@ const SlayBotDB = require('../../databases/schema/news');
 module.exports = {
   name: 'waifu-setnews', // name of the command
   description: 'Set news to waifumusic', // description of the command
+  category: 'dev', // cmd category
   developer: true, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands

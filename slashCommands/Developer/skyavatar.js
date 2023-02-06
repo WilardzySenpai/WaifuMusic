@@ -3,6 +3,7 @@ const { ApplicationCommandType, EmbedBuilder } = require("discord.js");
 module.exports = {
   name: 'skyavatar',
   description: 'Set SkyAnime Utilities avatar',
+  category: 'dev', // cmd category
   developer: true,
   type: ApplicationCommandType.ChatInput,
   cooldown: 3000,

@@ -8,9 +8,9 @@ const wbc = new WebhookClient({
 });
 
 module.exports = {
-  name: 'waifu-quote', // name of the command
+  name: 'waifu-aniquote', // name of the command
   description: 'Generate random anime quote', // description of the command
-  category: 'Fun', // cmd category
+  category: 'Anime', // cmd category
   developer: false, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands

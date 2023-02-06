@@ -636,6 +636,13 @@ module.exports = {
             .setDescription(`${client.slashCommands.filter((cmd) => cmd.category === "Anime").map((cmd) =>
               `\`${cmd.name}\``).join(", ")}`)
           await interaction.reply({ embeds: [aniemebd] });
+        } else if (slcmd === 'dev') {
+          const dembed = new EmbedBuilder()
+            .setColor(client.important.MAIN_COLOR)
+            .setTitle(client.emoji.blank + " Developer Cmds")
+            .setDescription(`${client.slashCommands.filter((cmd) => cmd.category === "dev").map((cmd) =>
+              `\`${cmd.name}\``).join(", ")}`)
+          await interaction.reply({ embeds: [dembed] });
         } else {
           const _slcmd = client.slashCommands.get(`waifu-${slcmd.toLowerCase()}`)
           if (!_slcmd) return interaction.reply({ content: `${client.emoji.warning} | There is no such __**waifu-${slcmd}**__ exist.\n> Please do not include **waifu-** at the begining if you did.`, ephemeral: true })
