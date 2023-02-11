@@ -41,6 +41,7 @@ This command will install the necessary packages as specified in the package.jso
 With all packages now downloaded, proceed to the `config.js` file where you will be required to fill in important variables for configuration.
 ```js
 module.exports = {
+
     WAIFU_TOKEN: process.env.WAIFU_TOKEN, // bot token
     OWNER_ID: "939867069070065714", // your id
     OWNER_TAG: "Hachiki#3819", // your user tag
@@ -54,6 +55,7 @@ module.exports = {
     WAIFU_TRACKS: parseBoolean(process.env.WAIFU_TRACKS || false),
     SPOTIFY_SECRET: process.env.SPOTIFY_SECRET,
     SPOTIFY_CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
+
     YOUTUBE_COOKIE: process.env.YOUTUBE_COOKIE, // youtube cookie to make less lag
     
     MAIN_COLOR: "#2F3136",
