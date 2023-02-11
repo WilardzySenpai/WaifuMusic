@@ -1,1 +1,2 @@
-It will generate automatically when the bot started.
+
+automatically generated

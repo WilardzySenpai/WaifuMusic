@@ -1,6 +1,6 @@
 function loadButtons(client) {
     const fs = require('fs');
-    const { green, white } = require('chalk')
+    const chalk = require('chalk')
     const ascii = require("ascii-table");
     const table = new ascii().setHeading("Buttons", "Status");
 
@@ -8,7 +8,7 @@ function loadButtons(client) {
         const button = require(`../buttons/${file}`)
         client.buttons.set(button.id, button)
     })
-    console.log(white('[') + green('INFO') + white('] ') + green('Buttons') + white(' Loaded!'));
+    console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white('] ') + chalk.green('Buttons') + chalk.white(' Loaded!'));
 }
 
 module.exports = { loadButtons }

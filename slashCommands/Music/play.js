@@ -65,10 +65,9 @@ module.exports = {
           }).then(() => {
             interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
           })
-          const msg = await interaction.reply({ content: `${client.emoji.song} | Searching...`, fetchReply: true }).then(() => {
-            interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
-          })
+          const msg = await interaction.reply({ content: `${client.emoji.song} | Searching...`, fetchReply: true })
           const message = await interaction.fetchReply();
+          await interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
           await client.createPlay(interaction, message.id);
           await wait(3000)
           await msg.edit({ content: '', embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setDescription(client.emoji.check + `** | Successfully searched!**`)], fetchReply: true });
@@ -105,14 +104,14 @@ module.exports = {
     } catch (e) {
       console.log(e)
       await interaction.reply({
-          embeds:
-              [
-                  new EmbedBuilder()
-                      .setTitle(client.emoji.warning + " Error!")
-                      .setDescription("*n error occured!" + `${e}`)
-                      .setColor(client.important.ERR_COLOR)
-              ],
-              ephemeral: true
+        embeds:
+          [
+            new EmbedBuilder()
+              .setTitle(client.emoji.warning + " Error!")
+              .setDescription("*n error occured!" + `${e}`)
+              .setColor(client.important.ERR_COLOR)
+          ],
+        ephemeral: true
       })
     }
   }

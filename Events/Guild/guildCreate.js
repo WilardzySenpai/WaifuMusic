@@ -9,9 +9,6 @@ const wbc = new WebhookClient({
 module.exports = {
   name: 'guildCreate',
   execute: async (guild, client) => {
-    await client.createExVoice(interaction);
-    await client.createExSetup(interaction);
-    await client.createAniExSetup(interaction);
     try {
       const owner = await guild.fetchOwner()
       // console.log(guild.ownerId)

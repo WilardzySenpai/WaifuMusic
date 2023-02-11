@@ -12,8 +12,9 @@ module.exports = {
     await client.createExVoice(interaction);
     await client.createExSetup(interaction);
     await client.createAniExSetup(interaction);
-    
+
     client.settings.ensure(interaction.guildId, {
+      prefix: client.important.WAIFU_PREFIX,
       defaultvolume: 50,
       defaultautoplay: false,
       defaultfilters: [],
@@ -23,9 +24,10 @@ module.exports = {
     client.usernews.ensure(interaction.guildId, {
       news: [],
     });
+    
     const slashCommand = client.slashCommands.get(interaction.commandName);
     if (!slashCommand) return;
-    
+
     if (interaction.type == InteractionType.ApplicationCommandAutocomplete) {
       const Random = SEARCH_DEFAULT[Math.floor(Math.random() * SEARCH_DEFAULT.length)];
       if (interaction.commandName == "aplay") {
@@ -129,8 +131,19 @@ module.exports = {
         }
         await slashCommand.execute(client, interaction);
       }
+
     } catch (error) {
       console.log(error);
+      await interaction.followUp({
+        embeds:
+          [
+            new EmbedBuilder()
+              .setTitle(client.emoji.warning + " Error!")
+              .setDescription("*n error occured!" + `${error}`)
+              .setColor(client.important.ERR_COLOR)
+          ],
+        ephemeral: true
+      })
     }
   }
 }

@@ -5,6 +5,7 @@ module.exports = {
   name: 'waifu-menu', // name of the command
   description: 'Select menu', // description of the command
   usage: '/help [command name]', // usage of the command
+  category: 'dev', // cmd category
   developer: true, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands

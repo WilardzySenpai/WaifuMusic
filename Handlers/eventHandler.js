@@ -2,7 +2,7 @@ function loadEvents(client) {
   const ascii = require("ascii-table");
   const fs = require("fs");
   const table = new ascii().setHeading("Events", "Status");
-  const { green, white } = require('chalk');
+  const chalk = require('chalk');
 
   const folders = fs.readdirSync("./Events");
   for (const folder of folders) {
@@ -30,7 +30,7 @@ function loadEvents(client) {
       continue;
     }
   }
-  console.log(white('[') + green('INFO') + white('] ') + green('Client ') + white('Events') + green(' Loaded!'));
+  console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white('] ') + chalk.green('Client ') + chalk.white('Events') + chalk.green(' Loaded!'));
 }
 
 module.exports = { loadEvents }

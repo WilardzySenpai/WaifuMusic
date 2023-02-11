@@ -2,11 +2,11 @@ function loadUpdate(client) {
     const { EmbedBuilder } = require("discord.js");
     const { Database } = require("st.db");
     const ee = require("../Config/embed.json");
-    const { white, green } = require("chalk");
+    const chalk = require("chalk");
 
     const db = new Database("./databases/models/setup.json", { databaseInObject: true });
 
-    console.log(white('[') + green('INFO') + white('] ') + green('Load ') + white('Update') + green(' Loaded!'));
+    console.log(chalk.gray(` ${String(new Date).split(" ", 5).join(" ")} `) + chalk.white('[') + chalk.green('WAIFU_INFO') + chalk.white('] ') + chalk.green('Load ') + chalk.white('Update') + chalk.green(' Loaded!'));
 
     client.UpdateQueueMsg = async function (queue) {
         const CheckDB = await db.has(queue.textChannel.guild.id);

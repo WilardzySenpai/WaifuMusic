@@ -6,7 +6,7 @@ module.exports = {
     name: 'waifu-reload', // name of the command
     description: 'restart the commands', // description of the command
     usage: '/waifu-reload', // usage of the cmd
-    category: 'Developer', // cmd category
+    category: 'dev', // cmd category
     developer: true, // false if the command is for public
     type: ApplicationCommandType.ChatInput, // chatinput
     cooldown: 3000, // cooldown of the commands

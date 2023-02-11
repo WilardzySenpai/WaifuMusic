@@ -8,7 +8,7 @@ const wbc = new WebhookClient({
 });
 
 module.exports = {
-    name: 'waifu-wallpaper2', // name of the command
+    name: 'waifu-charwall', // name of the command
     description: 'Give you a anime wallpaper character', // description of the command
     usage: '/waifu-wallpaper <character_name>', // usage of the cmd
     category: 'Anime', // cmd category

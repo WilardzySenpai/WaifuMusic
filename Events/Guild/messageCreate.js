@@ -10,22 +10,37 @@ module.exports = {
    * @param (Client) client
    */
   execute: async (message, client) => {
-    client.settings.ensure(message.guildId, {
+    client.settings.ensure(message.guild.id, {
+      prefix: client.important.WAIFU_PREFIX,
       defaultvolume: 50,
       defaultautoplay: false,
       defaultfilters: [],
       djroles: [],
     });
+
     if (message.author.bot) return;
     if (message.channel.type !== 0) return;
-    const prefix = client.important.WAIFU_PREFIX;
-    if (!message.content.toLowerCase().startsWith(prefix)) return;
-    const args = message.content.toLowerCase().slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-    if (cmd.length == 0) return;
+    let prefix = client.settings.get(message.guild.id, "prefix");
+    const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(prefix)})`);
+    if (!prefixRegex.test(message.content)) return;
+    const [, mPrefix] = message.content.match(prefixRegex);
+    const args = message.content.slice(mPrefix.length).trim().split(/ +/).filter(Boolean);
+    const cmd = args.length > 0 ? args.shift().toLowerCase() : null;
+    if (!cmd || cmd.length == 0) {
+      if (mPrefix.includes(client.user.id)) {
+        message.reply({
+          embeds: [
+            new EmbedBuilder()
+            .setColor(client.important.MAIN_COLOR)
+            .setTitle(client.emoji.blank + " Hello there!")
+            .setDescription(`my prefix here is ${prefix}`)
+          ]
+        })
+      }
+      return;
+    }
     let command = client.commands.get(cmd)
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-    if (!command) return;
+    if (!command) command = client.commands.get(client.aliases.get(cmd.toLowerCase()));
     if (command.inVoiceChannel && !message.member.voice.channel) {
       return await message.reply(`${client.emoji.cross} | You must be in a voice channel!`)
     }
@@ -82,5 +97,13 @@ module.exports = {
         command.execute(client, message, args)
       }
     }
+  }
+}
+
+function escapeRegex(str) {
+  try {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, `\\$&`);
+  } catch {
+    return str
   }
 }

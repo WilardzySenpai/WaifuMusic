@@ -6,6 +6,7 @@ const { loadError } = require("../../Handlers/errorHandler");
 module.exports = {
   name: "reload",
   description: 'reload the events or commands',
+  category: 'dev', // cmd category
   type: ApplicationCommandType.ChatInput,
   default_member_permissions: 'Administrator',
   developer: true,

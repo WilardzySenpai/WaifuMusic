@@ -41,18 +41,13 @@ This command will install the necessary packages as specified in the package.jso
 With all packages now downloaded, proceed to the `config.js` file where you will be required to fill in important variables for configuration.
 ```js
 module.exports = {
-    // most importants
-    WAIFU_TOKEN: process.env.WAIFU_TOKEN,
-    OWNER_ID: process.env.HACHIKI || "",
-    OWNER_TAG: process.env.HACHIKI_TAG || "",
-    OWNER_LINK: process.env.HACHIKI_LINK || "https://discord.com/users/id-here",
-    DEV_GUILD: process.env.DEV_GUILD || "",
 
-    // prefix
-    WAIFU_PREFIX: process.env.WAIFU_PREFIX || "w!",
-
-    // database mongodb
-    MONGO_DB: process.env.MONGO_DB,
+    WAIFU_TOKEN: process.env.WAIFU_TOKEN, // bot token
+    OWNER_ID: "939867069070065714", // your id
+    OWNER_TAG: "Hachiki#3819", // your user tag
+    OWNER_LINK: "https://discord.com/users/939867069070065714", // https://discord.com/users/paste-ur-id-here
+    DEV_GUILD:"1058390757297377331", // dev guild
+    MONGO_DB: process.env.MONGO_DB, // database mongodb
 
     // spotify for distube
     // If spotify_tracks is true then you can play song from spotify more than 100+ the default is *false*
@@ -61,12 +56,12 @@ module.exports = {
     SPOTIFY_SECRET: process.env.SPOTIFY_SECRET,
     SPOTIFY_CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
 
-    // youtube cookie to make less lag
-    YOUTUBE_COOKIE: process.env.YOUTUBE_COOKIE,
-
-    // embed colors
-    MAIN_COLOR: process.env.MAIN_COLOR || "#2F3136",
-    ERR_COLOR: process.env.ERR_COLOR || "#ED2828"
+    YOUTUBE_COOKIE: process.env.YOUTUBE_COOKIE, // youtube cookie to make less lag
+    
+    MAIN_COLOR: "#2F3136",
+    ERR_COLOR: "#ED2828",
+    WAIFU_PREFIX: "w!",
+    CHANNEL: "1027435338706210847"
 }
 ```
 ## 💕 Running
